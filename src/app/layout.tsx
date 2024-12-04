@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="no-scrollbar">
+    <html lang="en" className="no-scrollbar overscroll-none scroll-smooth">
       <body className={`${nunito.variable} h-full `}>
         <Nav />
         {children}
