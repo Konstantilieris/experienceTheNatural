@@ -84,7 +84,7 @@ export const AuroraHero = () => {
           animate={mountainControls}
           style={{
             backgroundImage: "url('/image-bottom.png')",
-            backgroundSize: "stretch",
+            backgroundSize: "cover",
 
             backgroundRepeat: "no-repeat",
             backgroundPosition: "bottom",
