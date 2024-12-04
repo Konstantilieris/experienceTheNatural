@@ -48,7 +48,7 @@ export const AuroraHero = () => {
       style={{
         backgroundImage,
       }}
-      className="relative pt-40 h-screen w-full 2xl:pt-60 overscroll-none"
+      className="relative pt-40 h-full w-full 2xl:pt-60 overscroll-none"
     >
       {" "}
       <div className="text-8xl gap-2 flex flex-row inset-0 w-full justify-center text-light-900 max-md:text-3xl max-md:gap-1 ">
