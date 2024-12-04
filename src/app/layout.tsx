@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="no-scrollbar overscroll-none scroll-smooth">
-      <body className={`${nunito.variable} h-full `}>
+      <body className={`${nunito.variable} h-[calc(100dvh)] `}>
         <Nav />
         {children}
       </body>
