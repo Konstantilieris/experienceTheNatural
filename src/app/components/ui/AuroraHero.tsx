@@ -9,6 +9,7 @@ import {
   animate,
   useAnimation,
 } from "framer-motion";
+import { FlipWords } from "./FlipWords";
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
@@ -42,16 +43,20 @@ export const AuroraHero = () => {
     });
   }, [mountainControls]);
 
-  const maintext = "Experience The Natural";
+  const maintext = "Experience The ";
+  const words = ["Journey", "World", "Landscape", "Natural"];
   return (
     <motion.section
       style={{
         backgroundImage,
       }}
-      className="relative pt-40 h-[calc(100dvh)] w-full 2xl:pt-60 overscroll-none"
+      className="relative pt-40 h-[calc(100dvh)] w-full 2xl:pt-60 overscroll-none max-md:pt-60"
     >
       {" "}
-      <div className="text-8xl gap-2 flex flex-row inset-0 w-full justify-center text-light-900 max-md:text-3xl max-md:gap-1 ">
+      <div
+        className="text-8xl gap-2 flex flex-row  justify-center text-light-900 max-md:text-3xl max-md:gap-1 mx-auto text-center"
+        style={{ width: "max-content" }}
+      >
         {maintext.split("").map((letter, index) => (
           <motion.span
             className="inline-block"
@@ -68,7 +73,11 @@ export const AuroraHero = () => {
               ease: "easeInOut",
             }}
           >
-            {letter}
+            {index === maintext.length - 1 ? (
+              <FlipWords words={words} />
+            ) : (
+              letter + " "
+            )}
           </motion.span>
         ))}
       </div>
