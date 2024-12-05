@@ -1,6 +1,12 @@
 "use client";
 import { SiInstagram, SiLinkedin, SiYoutube } from "react-icons/si";
-import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
+import React, {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 
@@ -16,8 +22,19 @@ export const Nav = () => {
 };
 
 const LinksOverlay = () => {
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const updateHeight = () => setViewportHeight(window.innerHeight);
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, []);
+
   return (
-    <nav className="fixed right-4 top-4 z-40 h-[calc(100vh_-_32px)] w-[calc(100%_-_32px)] overflow-hidden">
+    <nav
+      style={{ height: viewportHeight - 30 + "px" }}
+      className="fixed right-4 top-4 z-40 w-[calc(100%_-_32px)] overflow-hidden"
+    >
       <Logo />
       <LinksContainer />
       <FooterCTAs />
@@ -152,7 +169,7 @@ const HamburgerButton = ({
 const FooterCTAs = () => {
   return (
     <>
-      <div className="absolute bottom-6 left-6 flex gap-4 md:flex-col">
+      <div className="absolute bottom-6 left-6 flex gap-4 md:flex-col ">
         {SOCIAL_CTAS.map((l, idx) => {
           return (
             <motion.a

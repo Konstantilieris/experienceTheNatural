@@ -20,8 +20,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="no-scrollbar overscroll-none scroll-smooth">
-      <body className={`${nunito.variable} h-[calc(100dvh)] `}>
+    <html lang="en" className="no-scrollbar overscroll-none scroll-smooth ">
+      <body
+        className={`${nunito.variable} h-[calc(100dvh)] w-full overflow-x-hidden `}
+      >
         <Nav />
         {children}
       </body>
