@@ -1,6 +1,4 @@
 import { SmoothScrollHero } from "@/components/ui/SmoothScrollHero";
-import { WorldMap } from "@/components/ui/WorldMap";
-
 import React from "react";
 
 const About = () => {
