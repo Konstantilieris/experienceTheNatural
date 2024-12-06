@@ -17,10 +17,13 @@ export const SmoothScrollHero = () => {
       <ReactLenis
         root
         options={{
-          // Learn more -> https://github.com/darkroomengineering/lenis?tab=readme-ov-file#instance-settings
-
-          infinite: true,
-          syncTouch: true,
+          infinite: false, // Disable infinite scrolling
+          syncTouch: false, // Disable touch synchronization
+          smoothWheel: true, // Enable smooth scroll on wheel
+          // Enable smooth scroll on touch devices
+          lerp: 0.1, // Adjust the smoothing factor (lower = slower, higher = faster)
+          wheelMultiplier: 1, // Adjust scroll speed multiplier
+          touchMultiplier: 2, // Adjust scroll speed for touch devices
         }}
       >
         <Nav />
