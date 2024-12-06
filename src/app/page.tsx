@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { AuroraHero } from "./components/ui/AuroraHero";
+import { AuroraHero } from "../components/ui/AuroraHero";
 
 export default function Home() {
   return (

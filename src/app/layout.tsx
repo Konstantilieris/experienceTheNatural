@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
-import { Nav } from "./components/navbar/CornerNav";
+import { Nav } from "../components/navbar/CornerNav";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -20,7 +20,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="no-scrollbar overscroll-none scroll-smooth ">
+    <html
+      lang="en"
+      className="no-scrollbar overscroll-none scroll-smooth bg-dark-100 "
+    >
       <body
         className={`${nunito.variable} h-[calc(100dvh)] w-full overflow-x-hidden `}
       >
