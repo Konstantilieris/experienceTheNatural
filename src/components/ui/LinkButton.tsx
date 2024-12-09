@@ -6,7 +6,6 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import { MdOutlineArrowUpward } from "react-icons/md";
 
 const MagnetButton = () => {
   const ref = useRef<HTMLButtonElement | null>(null);
