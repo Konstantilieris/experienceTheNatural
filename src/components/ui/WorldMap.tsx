@@ -13,7 +13,7 @@ interface MapProps {
   lineColor?: string;
 }
 
-export function WorldMap({ dots = [], lineColor = "#a855f7" }: MapProps) {
+export function WorldMap({ dots = [], lineColor = "#ffffff" }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
 
   const map = new DottedMap({
@@ -54,7 +54,7 @@ export function WorldMap({ dots = [], lineColor = "#a855f7" }: MapProps) {
   };
 
   return (
-    <div className=" absolute top-0 w-full aspect-[2/1] bg-dark rounded-lg">
+    <div className=" absolute top-0 w-full aspect-[2/1] bg-dark rounded-lg ">
       <Image
         src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
         className="h-full w-full pointer-events-auto select-none"

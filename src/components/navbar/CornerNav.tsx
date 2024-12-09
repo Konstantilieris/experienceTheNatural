@@ -9,7 +9,8 @@ import React, {
 } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
-
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 export const Nav = () => {
   const [active, setActive] = useState(false);
 
@@ -33,7 +34,7 @@ const LinksOverlay = () => {
   return (
     <nav
       style={{ height: viewportHeight - 30 + "px" }}
-      className="fixed right-4 top-4 z-40 w-[calc(100%_-_32px)] overflow-hidden"
+      className="fixed right-4 top-4 z-50 w-[calc(100%_-_32px)] overflow-hidden"
     >
       <Logo />
       <LinksContainer />
@@ -87,7 +88,6 @@ const NavLink = ({
 };
 
 const Logo = () => {
-  // Temp logo from https://logoipsum.com/
   return (
     <motion.a
       initial={{ opacity: 0, y: -12 }}
@@ -97,26 +97,15 @@ const Logo = () => {
         transition: { delay: 0.5, duration: 0.5, ease: "easeInOut" },
       }}
       exit={{ opacity: 0, y: -12 }}
-      href="#"
-      className="grid h-20 w-20 place-content-center rounded-br-xl rounded-tl-xl bg-white transition-colors hover:bg-violet-50"
+      href="/"
+      className="grid h-32 w-32 place-content-center rounded-br-xl rounded-tl-xl bg-neutral-900 transition-colors hover:bg-neutral-950 relative "
     >
-      <svg
-        width="50"
-        height="39"
-        viewBox="0 0 50 39"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="fill-neutral-900"
-      >
-        <path
-          d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
-          stopColor="#FFFFFF"
-        ></path>
-        <path
-          d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
-          stopColor="#FFFFFF"
-        ></path>
-      </svg>
+      <Image
+        src="/experience_logo.png"
+        alt="logo"
+        layout="fill" // Makes the image fill the container
+        objectFit="cover"
+      />
     </motion.a>
   );
 };
@@ -135,16 +124,18 @@ const HamburgerButton = ({
         animate={active ? "open" : "closed"}
         variants={UNDERLAY_VARIANTS}
         style={{ top: 16, right: 16 }}
-        className="fixed z-10 rounded-xl bg-gradient-to-br from-neutral-800 to-dark-100 shadow-lg shadow-neutral-800"
+        className="fixed z-50 rounded-xl bg-gradient-to-br from-neutral-800 to-dark-100 shadow-sm shadow-neutral-700 "
       />
 
       <motion.button
         initial={false}
         animate={active ? "open" : "closed"}
         onClick={() => setActive((pv) => !pv)}
-        className={`group fixed right-4 top-4 z-50 h-20 w-20 bg-white/0 transition-all hover:bg-neutral-900 ${
-          active ? "rounded-bl-xl rounded-tr-xl" : "rounded-xl"
-        }`}
+        className={cn(
+          `group fixed right-4 top-4 z-[7000] h-20 w-20 bg-white/0 transition-all hover:bg-neutral-900 ${
+            active ? "rounded-bl-xl rounded-tr-xl" : "rounded-xl"
+          }`
+        )}
       >
         <motion.span
           variants={HAMBURGER_VARIANTS.top}
@@ -216,14 +207,14 @@ const FooterCTAs = () => {
 const LINKS = [
   {
     title: "home",
-    href: "#",
+    href: "/",
   },
   {
     title: "about",
     href: "#",
   },
   {
-    title: "program",
+    title: "adventures",
     href: "/program",
   },
   {

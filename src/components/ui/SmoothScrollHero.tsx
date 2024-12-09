@@ -36,16 +36,16 @@ export const SmoothScrollHero = () => {
 
 const Nav = () => {
   return (
-    <nav className="fixed left-0  top-0 z-50 flex items-center justify-between px-6 py-3 text-white">
+    <nav className="fixed left-0  top-0 z-20 flex items-center justify-between px-6 py-3 text-white">
       <button
         onClick={() => {
           document.getElementById("launch-schedule")?.scrollIntoView({
             behavior: "smooth",
           });
         }}
-        className="flex items-center gap-1 text-xs text-zinc-400"
+        className="flex items-center gap-1 text-xs text-light-900"
       >
-        EXPERIENCE SCHEDULE <FiArrowRight />
+        EXPERIENCE ADVENTURE <FiArrowRight />
       </button>
     </nav>
   );

@@ -11,6 +11,8 @@ import {
 } from "framer-motion";
 import { FlipWords } from "./FlipWords";
 
+import ModalWrapper from "./SpringModal";
+
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
 export const AuroraHero = () => {
@@ -50,36 +52,47 @@ export const AuroraHero = () => {
       style={{
         backgroundImage,
       }}
-      className="relative pt-40 h-[calc(100dvh)] w-full 2xl:pt-60 overscroll-none max-md:pt-60"
+      className="relative pt-40 h-[calc(100dvh)] w-full 2xl:pt-60 overscroll-none max-md:pt-48"
     >
-      {" "}
-      <div
-        className="text-8xl gap-2 flex flex-row  justify-center text-light-900 max-md:text-3xl max-md:gap-1 mx-auto text-center"
-        style={{ width: "max-content" }}
-      >
-        {maintext.split("").map((letter, index) => (
-          <motion.span
-            className="inline-block"
-            key={index}
-            variants={{
-              hidden: { opacity: 0, y: 10 }, // Start slightly below
-              visible: { opacity: 1, y: 0 }, // Fade in and move to position
-            }}
-            initial="hidden"
-            animate="visible"
-            transition={{
-              duration: 0.4, // Short animation duration per letter
-              delay: index * 0.1, // Shorter delay between letters
-              ease: "easeInOut",
-            }}
-          >
-            {index === maintext.length - 1 ? (
-              <FlipWords words={words} />
-            ) : (
-              letter + " "
-            )}
-          </motion.span>
-        ))}
+      <ModalWrapper />
+      <div className="text-8xl gap-2 flex  text-light-900 max-md:text-3xl max-md:gap-1 w-full justify-center xl:pl-44 max-md:pl-4 max-md:flex-col 2xl:pl-[20vw] ">
+        <div className="self-center flex gap-1">
+          {maintext.split("").map((letter, index) => (
+            <motion.span
+              className="inline-block"
+              key={index}
+              variants={{
+                hidden: { opacity: 0, y: 10 }, // Start slightly below
+                visible: { opacity: 1, y: 0 }, // Fade in and move to position
+              }}
+              initial="hidden"
+              animate="visible"
+              transition={{
+                duration: 0.4, // Short animation duration per letter
+                delay: index * 0.1, // Shorter delay between letters
+                ease: "easeInOut",
+              }}
+            >
+              {letter}
+            </motion.span>
+          ))}
+        </div>
+        <motion.div
+          className="self-center"
+          variants={{
+            hidden: { opacity: 0, y: 10 }, // Start slightly below
+            visible: { opacity: 1, y: 0 }, // Fade in and move to position
+          }}
+          initial="hidden"
+          animate="visible"
+          transition={{
+            duration: 0.4, // Short animation duration per letter
+            delay: maintext.length * 0.1, // Shorter delay between letters
+            ease: "easeInOut",
+          }}
+        >
+          <FlipWords words={words} />
+        </motion.div>
       </div>
       <div className="absolute inset-0 z-0 h-full">
         <Canvas className="min-h-full">
